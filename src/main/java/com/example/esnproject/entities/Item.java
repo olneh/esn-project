@@ -1,4 +1,4 @@
-package com.example.esnproject;
+package com.example.esnproject.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

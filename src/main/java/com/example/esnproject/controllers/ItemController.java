@@ -1,5 +1,7 @@
-package com.example.esnproject;
+package com.example.esnproject.controllers;
 
+import com.example.esnproject.entities.Item;
+import com.example.esnproject.repositories.ItemRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
