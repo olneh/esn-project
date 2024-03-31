@@ -35,7 +35,7 @@ dependencies {
 //	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
 	runtimeOnly 'org.postgresql:postgresql'
 
-	implementation 'org.liquibase:liquibase-core'
+//	implementation 'org.liquibase:liquibase-core'
 }
 
 tasks.named('test') {

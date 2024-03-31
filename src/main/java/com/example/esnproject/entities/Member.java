@@ -14,8 +14,11 @@ public class Member {
     @Column(name = "member_id")
     private Long id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
+
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
 
     @Column(name = "birthday")
     private Date birthday;
@@ -28,6 +31,9 @@ public class Member {
 
     @Column(name = "points")
     private Integer points;
+
+    @Column(name = "password")
+    private String password;
 
     // Getters and setters
 }
