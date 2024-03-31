@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RegistrationController {
 
-    private MemberRepository dao;
+    private final MemberRepository dao;
 
     public RegistrationController(MemberRepository dao) {
         this.dao = dao;
