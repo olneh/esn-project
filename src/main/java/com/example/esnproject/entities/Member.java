@@ -35,5 +35,8 @@ public class Member {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "photo_url")
+    private String photoUrl;
+
     // Getters and setters
 }
