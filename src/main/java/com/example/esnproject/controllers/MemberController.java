@@ -6,18 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/members")
+@RequestMapping("/api/members")
 public class MemberController {
 
     @Autowired
     private MemberService memberService;
 
     // Endpoint to get all members
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Member>> getAllMembers() {
         List<Member> members = memberService.getAllMembers();
         return new ResponseEntity<>(members, HttpStatus.OK);
@@ -39,6 +40,16 @@ public class MemberController {
     public ResponseEntity<Member> createMember(@RequestBody Member member) {
         Member createdMember = memberService.createMember(member);
         return new ResponseEntity<>(createdMember, HttpStatus.CREATED);
+    }
+
+    @PostMapping("{memberId}/uploadPhoto")
+    public ResponseEntity<String> uploadMemberPhoto(@PathVariable Long memberId, @RequestParam("file") MultipartFile file) {
+        try {
+            String photoUrl = memberService.uploadMemberPhoto(memberId, file);
+            return ResponseEntity.ok().body("Photo uploaded successfully: " + photoUrl);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Could not upload the photo: " + e.getMessage());
+        }
     }
 
     // Endpoint to update an existing member

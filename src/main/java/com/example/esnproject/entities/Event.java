@@ -18,7 +18,7 @@ public class Event {
     private String eventTitle;
 
     @Column(name = "event_date")
-    private Date event_date;
+    private Date eventDate;
 
     @Column(name = "attendance_type")
     private String attendanceType;
