@@ -3,6 +3,8 @@ package com.example.esnproject.repositories;
 import com.example.esnproject.entities.MemberEvent;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface MemberEventRepository extends JpaRepository<MemberEvent, Long> {
-    // Add custom query methods if needed
+    Optional<MemberEvent> findByEventIdAndMemberReceiverId(Long eventId, Long receiverId);
 }

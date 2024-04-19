@@ -30,7 +30,7 @@ public class Member {
     private String email;
 
     @Column(name = "points")
-    private Integer points;
+    private Integer points = 0;
 
     @Column(name = "password")
     private String password;
