@@ -37,9 +37,17 @@ public class EventController {
         Event createdEvent = eventService.createEvent(event);
         return new ResponseEntity<>(createdEvent, HttpStatus.CREATED);
     }
-    
-    @DeleteMapping("/{id}")
-    public void deleteEvent(@PathVariable("id") Long id) {
+
+    @DeleteMapping("/deleteEvent/{id}")
+    public ResponseEntity<?> deleteEvent(@PathVariable Long id) {
         eventService.deleteEvent(id);
+        return ResponseEntity.ok().build();
+    }
+
+
+    @PutMapping("/updateEvent/{id}")
+    public ResponseEntity<Event> updateEvent(@PathVariable Long id, @RequestBody Event updatedEvent) {
+        Event event = eventService.updateEvent(id, updatedEvent);
+        return ResponseEntity.ok(event);
     }
 }
