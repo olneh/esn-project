@@ -7,6 +7,7 @@ import com.example.esnproject.repositories.MemberRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,6 +19,14 @@ public class MemberEventService {
     public MemberEventService(MemberEventRepository memberEventRepository, MemberRepository memberRepository) {
         this.memberEventRepository = memberEventRepository;
         this.memberRepository = memberRepository;
+    }
+
+    public List<String> getMemberNamesByEventId(Long eventId) {
+        return memberEventRepository.findMemberNamesByEventId(eventId);
+    }
+
+    public List<MemberEvent> getMembersByEventId(Long eventId) {
+        return memberEventRepository.findByEventId(eventId);
     }
 
     @Transactional

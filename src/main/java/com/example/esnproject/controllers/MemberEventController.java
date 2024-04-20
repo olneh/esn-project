@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/memberEvents")
 public class MemberEventController {
@@ -15,6 +17,19 @@ public class MemberEventController {
     public MemberEventController(MemberEventService memberEventService) {
         this.memberEventService = memberEventService;
     }
+
+    @GetMapping("/{eventId}/eventMemberNames")
+    public ResponseEntity<List<String>> getMemberNamesForEvent(@PathVariable Long eventId) {
+        List<String> memberNames = memberEventService.getMemberNamesByEventId(eventId);
+        return new ResponseEntity<>(memberNames, HttpStatus.OK);
+    }
+
+    @GetMapping("/{eventId}/eventMembers") //backend only
+    public ResponseEntity<List<MemberEvent>> getEventMembers(@PathVariable Long eventId) {
+        List<MemberEvent> members = memberEventService.getMembersByEventId(eventId);
+        return new ResponseEntity<>(members, HttpStatus.OK);
+    }
+
 
     @PostMapping("/registerForEvent")
     public ResponseEntity<String> registerMemberEvent(
