@@ -11,7 +11,6 @@ import java.util.List;
 @RequestMapping("/api/account")
 public class AccountManagementController {
 
-//    private final MemberRepository memberRepository;
     private final MemberService memberService;
 
     public AccountManagementController(MemberService memberService) {
