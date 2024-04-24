@@ -6,7 +6,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "member_role")
-public class MemberRole {
+public class MemberRole extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_role_id")
@@ -17,8 +17,6 @@ public class MemberRole {
 
     @Column(name = "member_level")
     private Integer memberLevel;
-
-    // Getters and setters
 
     @ManyToOne
     @JoinColumn(name = "member_id", referencedColumnName = "member_id", insertable = false, updatable = false)

@@ -6,7 +6,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "member_event")
-public class MemberEvent {
+public class MemberEvent extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_event_id")
@@ -26,8 +26,6 @@ public class MemberEvent {
 
     @Column(name = "points")
     private Integer points;
-
-    // Getters and setters
 
     @ManyToOne
     @JoinColumn(name = "event_id", referencedColumnName = "event_id", insertable = false, updatable = false)

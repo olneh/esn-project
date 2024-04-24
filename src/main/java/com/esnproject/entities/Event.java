@@ -3,12 +3,13 @@ package com.esnproject.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 @Data
 @Table(name = "event")
-public class Event {
+public class Event extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "event_id")
@@ -28,6 +29,4 @@ public class Event {
 
     @Column(name = "helpers_needed")
     private Integer helpersNeeded;
-
-    // Getters and setters
 }

@@ -3,12 +3,13 @@ package com.esnproject.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 @Data
 @Table(name = "member")
-public class Member {
+public class Member extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
@@ -37,6 +38,4 @@ public class Member {
 
     @Column(name = "photo_url")
     private String photoUrl;
-
-    // Getters and setters
 }

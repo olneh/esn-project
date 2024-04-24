@@ -3,10 +3,12 @@ package com.esnproject.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @Table(name = "feedback")
-public class Feedback {
+public class Feedback extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "feedback_id")
@@ -17,8 +19,6 @@ public class Feedback {
 
     @Column(name = "comment")
     private String comment;
-
-    // Getters and setters
 
     @ManyToOne
     @JoinColumn(name = "event_id", referencedColumnName = "event_id", insertable = false, updatable = false)
