@@ -1,7 +1,7 @@
-package com.example.esnproject.services;
+package com.esnproject.services;
 
-import com.example.esnproject.entities.Event;
-import com.example.esnproject.repositories.EventRepository;
+import com.esnproject.entities.Event;
+import com.esnproject.repositories.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

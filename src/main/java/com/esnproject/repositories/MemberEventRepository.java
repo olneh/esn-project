@@ -1,7 +1,6 @@
-package com.example.esnproject.repositories;
+package com.esnproject.repositories;
 
-import com.example.esnproject.entities.Member;
-import com.example.esnproject.entities.MemberEvent;
+import com.esnproject.entities.MemberEvent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

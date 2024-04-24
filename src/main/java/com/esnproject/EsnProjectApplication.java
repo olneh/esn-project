@@ -1,4 +1,4 @@
-package com.example.esnproject;
+package com.esnproject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,7 +1,7 @@
-package com.example.esnproject.controllers;
+package com.esnproject.controllers;
 
-import com.example.esnproject.entities.MemberEvent;
-import com.example.esnproject.services.MemberEventService;
+import com.esnproject.entities.MemberEvent;
+import com.esnproject.services.MemberEventService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

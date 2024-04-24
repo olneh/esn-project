@@ -1,6 +1,6 @@
-package com.example.esnproject.repositories;
+package com.esnproject.repositories;
 
-import com.example.esnproject.entities.Member;
+import com.esnproject.entities.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {

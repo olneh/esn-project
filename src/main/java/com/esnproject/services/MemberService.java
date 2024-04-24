@@ -1,7 +1,7 @@
-package com.example.esnproject.services;
+package com.esnproject.services;
 
-import com.example.esnproject.entities.Member;
-import com.example.esnproject.repositories.MemberRepository;
+import com.esnproject.entities.Member;
+import com.esnproject.repositories.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;

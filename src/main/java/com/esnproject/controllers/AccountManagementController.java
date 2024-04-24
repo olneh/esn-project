@@ -1,8 +1,7 @@
-package com.example.esnproject.controllers;
+package com.esnproject.controllers;
 
-import com.example.esnproject.entities.Member;
-import com.example.esnproject.repositories.MemberRepository;
-import com.example.esnproject.services.MemberService;
+import com.esnproject.entities.Member;
+import com.esnproject.services.MemberService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

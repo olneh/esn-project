@@ -1,9 +1,9 @@
-package com.example.esnproject.services;
+package com.esnproject.services;
 
-import com.example.esnproject.entities.Member;
-import com.example.esnproject.entities.MemberEvent;
-import com.example.esnproject.repositories.MemberEventRepository;
-import com.example.esnproject.repositories.MemberRepository;
+import com.esnproject.repositories.MemberRepository;
+import com.esnproject.entities.Member;
+import com.esnproject.entities.MemberEvent;
+import com.esnproject.repositories.MemberEventRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

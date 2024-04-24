@@ -1,7 +1,7 @@
-package com.example.esnproject.controllers;
+package com.esnproject.controllers;
 
-import com.example.esnproject.entities.Member;
-import com.example.esnproject.services.MemberService;
+import com.esnproject.entities.Member;
+import com.esnproject.services.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

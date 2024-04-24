@@ -1,7 +1,7 @@
-package com.example.esnproject.controllers;
+package com.esnproject.controllers;
 
-import com.example.esnproject.entities.Event;
-import com.example.esnproject.services.EventService;
+import com.esnproject.entities.Event;
+import com.esnproject.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

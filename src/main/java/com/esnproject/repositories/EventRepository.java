@@ -1,6 +1,6 @@
-package com.example.esnproject.repositories;
+package com.esnproject.repositories;
 
-import com.example.esnproject.entities.Event;
+import com.esnproject.entities.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EventRepository extends JpaRepository<Event, Long> {

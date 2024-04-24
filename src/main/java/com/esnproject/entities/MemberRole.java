@@ -1,4 +1,4 @@
-package com.example.esnproject.entities;
+package com.esnproject.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
