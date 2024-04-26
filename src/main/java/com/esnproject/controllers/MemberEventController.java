@@ -38,7 +38,7 @@ public class MemberEventController {
             @RequestParam("task") String task) {
         try {
             MemberEvent memberEvent = memberEventService.registerMemberForEvent(eventId, memberId, task);
-            return new ResponseEntity<>(memberEvent.getEventId().toString(), HttpStatus.CREATED);
+            return new ResponseEntity<>(memberEvent.getEvent().getId().toString(), HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
@@ -52,7 +52,7 @@ public class MemberEventController {
             @RequestParam("points") Integer points) {
         try {
             MemberEvent memberEvent = memberEventService.addMemberEventPoints(eventId, memberManagerId, memberReceiverId, points);
-            return new ResponseEntity<>(memberEvent.getEventId().toString(), HttpStatus.OK);
+            return new ResponseEntity<>(memberEvent.getEvent().getId().toString(), HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }

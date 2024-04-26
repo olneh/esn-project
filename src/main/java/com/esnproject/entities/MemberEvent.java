@@ -1,8 +1,11 @@
 package com.esnproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @Table(name = "member_event")
@@ -12,15 +15,6 @@ public class MemberEvent extends BaseEntity {
     @Column(name = "member_event_id")
     private Long id;
 
-    @Column(name = "event_id")
-    private Long eventId;
-
-    @Column(name = "member_receiver_id")
-    private Long memberReceiverId;
-
-    @Column(name = "member_manager_id")
-    private Long memberManagerId;
-
     @Column(name = "task")
     private String task;
 
@@ -28,14 +22,15 @@ public class MemberEvent extends BaseEntity {
     private Integer points;
 
     @ManyToOne
-    @JoinColumn(name = "event_id", referencedColumnName = "event_id", insertable = false, updatable = false)
+    @JoinColumn(name = "event_id")
+    @JsonIgnore
     private Event event;
 
     @ManyToOne
-    @JoinColumn(name = "member_receiver_id", referencedColumnName = "member_id", insertable = false, updatable = false)
+    @JoinColumn(name = "member_receiver_id")
     private Member memberReceiver;
 
     @ManyToOne
-    @JoinColumn(name = "member_manager_id", referencedColumnName = "member_id", insertable = false, updatable = false)
+    @JoinColumn(name = "member_manager_id")
     private Member memberManager;
 }

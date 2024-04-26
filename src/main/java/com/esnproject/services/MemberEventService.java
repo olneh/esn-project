@@ -1,5 +1,7 @@
 package com.esnproject.services;
 
+import com.esnproject.entities.Event;
+import com.esnproject.repositories.EventRepository;
 import com.esnproject.repositories.MemberRepository;
 import com.esnproject.entities.Member;
 import com.esnproject.entities.MemberEvent;
@@ -15,10 +17,12 @@ public class MemberEventService {
 
     private final MemberEventRepository memberEventRepository;
     private final MemberRepository memberRepository;
+    private final EventRepository eventRepository;
 
-    public MemberEventService(MemberEventRepository memberEventRepository, MemberRepository memberRepository) {
+    public MemberEventService(MemberEventRepository memberEventRepository, MemberRepository memberRepository, EventRepository eventRepository) {
         this.memberEventRepository = memberEventRepository;
         this.memberRepository = memberRepository;
+        this.eventRepository = eventRepository;
     }
 
     public List<String> getMemberNamesByEventId(Long eventId) {
@@ -70,10 +74,18 @@ public class MemberEventService {
                 .orElseThrow(() -> new RuntimeException("Member not found with ID: " + memberId));
     }
 
+    private Event validateEventExists(Long eventId) {
+        return eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found with ID: " + eventId));
+    }
+
     private MemberEvent createAndSaveMemberEvent(Long eventId, Long memberId, String task) {
         MemberEvent memberEvent = new MemberEvent();
-        memberEvent.setEventId(eventId);
-        memberEvent.setMemberReceiverId(memberId);
+        Member member = validateMemberExists(memberId);
+        Event event = validateEventExists(eventId);
+
+        memberEvent.setMemberReceiver(member);
+        memberEvent.setEvent(event);
         memberEvent.setTask(task);
         memberEvent.setPoints(0);
 

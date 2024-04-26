@@ -1,10 +1,11 @@
 package com.esnproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import java.time.LocalDateTime;
-
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @Table(name = "feedback")
@@ -14,13 +15,11 @@ public class Feedback extends BaseEntity {
     @Column(name = "feedback_id")
     private Long id;
 
-    @Column(name = "event_id")
-    private Long eventId;
-
     @Column(name = "comment")
     private String comment;
 
     @ManyToOne
-    @JoinColumn(name = "event_id", referencedColumnName = "event_id", insertable = false, updatable = false)
+    @JoinColumn(name = "event_id")
+    @JsonIgnore
     private Event event;
 }
