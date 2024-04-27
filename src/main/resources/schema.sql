@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS member_event
 
 
 INSERT INTO member (first_name, last_name, birthday, phone, email, points, password)
-VALUES ('Aarav', 'Patel', '1993-05-21 00:00:00', '555-6789', 'aarav.patel@example.com', 120, 'Aarav2024!'),
+VALUES ('User', '1', '1993-05-21 00:00:00', '555-6789', 'aarav.patel@example.com', 120, 'Aarav2024!'),
        ('Luna', 'Garcia', '1989-10-09 00:00:00', '555-4321', 'luna.garcia@example.com', 280, 'LunaMoon!'),
        ('Kai', 'Zhao', '1991-03-18 00:00:00', '555-9876', 'kai.zhao@example.com', 175, 'KaiPass#123'),
        ('Nia', 'Thompson', '1986-07-24 00:00:00', '555-6543', 'nia.thompson@example.com', 215, 'Nia!2024'),
@@ -100,7 +100,21 @@ VALUES ('John', 'Doe', '1990-04-25 00:00:00', '555-1234', 'john.doe@example.com'
 
 
 INSERT INTO event (event_title, event_date, attendance_type, comment, helpers_needed)
-VALUES ('Community Clean-up', '2024-04-15 09:00:00', 'In-person', 'Annual neighborhood park clean-up.', 5),
+VALUES ('Community Clean-up', '2024-04-15 09:00:00', 'Other', 'Annual neighborhood park clean-up.', 5),
+       ('Monthly Board Meeting', '2024-04-20 14:00:00', 'Monthly meeting', 'Monthly board meeting to discuss plans.',
+        3),
+       ('Team Building Trip', '2024-04-25 08:00:00', 'Trip', 'Team-building trip to the mountains.', 10),
+       ('Fun Event for Kids', '2024-04-30 10:00:00', 'Motivational event', 'A fun event with activities for kids.', 15),
+       ('Exceptional Project Meeting', '2024-05-02 13:00:00', 'Exceptional meeting',
+        'Special meeting for project updates.', 7),
+       ('Community Outreach', '2024-05-10 11:00:00', 'Meeting', 'Community outreach program discussion.', 4),
+       ('Leadership Training', '2024-05-15 09:00:00', 'Other', 'Training for new team leaders.', 6),
+       ('Environmental Awareness', '2024-05-20 10:00:00', 'Meeting', 'Meeting to discuss environmental initiatives.',
+        5),
+       ('Company Outing', '2024-05-25 08:00:00', 'Trip', 'Company-wide outing for team bonding.', 20),
+       ('Neighborhood Block Party', '2024-05-30 15:00:00', 'Motivational event',
+        'Annual block party for community engagement.', 25),
+       ('Community Clean-up', '2024-04-15 09:00:00', 'In-person', 'Annual neighborhood park clean-up.', 5),
        ('Online Workshop: Gardening Basics', '2024-05-01 18:00:00', 'Virtual',
         'Learn the basics of gardening from home.', 2),
        ('Local Farmer''s Market', '2024-04-20 08:00:00', 'In-person', 'Support local farmers and enjoy fresh produce.',
@@ -152,6 +166,19 @@ VALUES (1, 3, 1, 'Coordinate venue', 10),
        (7, 4, 1, 'Tech support', 11),
        (8, 6, 1, 'Manage guest list', 6),
        (9, 8, 1, 'Collect donations', 10),
-       (10, 10, 1, 'Provide feedback forms', 8);
+       (10, 10, 1, 'Provide feedback forms', 8),
+--        just user registration
+       (1, 1, NULL, 'Coordinate venue', 0),
+       (2, 1, NULL, 'Arrange speakers', 0),
+       (3, 1, NULL, 'Organize catering', 0),
+       (4, 1, NULL, 'Handle logistics', 0),
+       (5, 1, NULL, 'Manage budget', 0),
+       (6, 1, NULL, 'Coordinate volunteers', 0),
+       (7, 1, NULL, 'Promote event', 0),
+       (8, 1, NULL, 'Handle registration', 0),
+       (9, 1, NULL, 'Arrange transport', 0),
+       (10, 1, NULL, 'Supervise setup', 0),
+       (11, 1, NULL, 'Monitor security', 0),
+       (12, 1, NULL, 'Coordinate clean-up', 0);
 
 
