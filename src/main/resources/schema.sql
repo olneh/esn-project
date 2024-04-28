@@ -65,38 +65,23 @@ CREATE TABLE IF NOT EXISTS member_event
 
 
 INSERT INTO member (first_name, last_name, birthday, phone, email, points, password)
-VALUES ('User', '1', '1993-05-21 00:00:00', '555-6789', 'aarav.patel@example.com', 120, 'Aarav2024!'),
-       ('Luna', 'Garcia', '1989-10-09 00:00:00', '555-4321', 'luna.garcia@example.com', 280, 'LunaMoon!'),
-       ('Kai', 'Zhao', '1991-03-18 00:00:00', '555-9876', 'kai.zhao@example.com', 175, 'KaiPass#123'),
-       ('Nia', 'Thompson', '1986-07-24 00:00:00', '555-6543', 'nia.thompson@example.com', 215, 'Nia!2024'),
-       ('Omar', 'Alvarez', '1994-12-12 00:00:00', '555-3210', 'omar.alvarez@example.com', 195, 'Omar*2024'),
-       ('Zara', 'Ibrahim', '1987-11-30 00:00:00', '555-2134', 'zara.ibrahim@example.com', 320, 'ZaraSecure!'),
-       ('Finn', 'Reilly', '1992-09-15 00:00:00', '555-7894', 'finn.oreilly@example.com', 250, 'FinnPass2024'),
-       ('Tara', 'Singh', '1985-01-25 00:00:00', '555-4567', 'tara.singh@example.com', 135, 'Tara#2024'),
-       ('Yuto', 'Nakamura', '1990-04-05 00:00:00', '555-8765', 'yuto.nakamura@example.com', 180, 'Yuto1234$'),
-       ('Sofia', 'Martinez', '1988-08-19 00:00:00', '555-5674', 'sofia.martinez@example.com', 305, 'Sofia!@#');
+VALUES
+    ('User', '1', '1993-05-21 00:00:00', '555-6789', 'aarav.patel@example.com', 0, 'Aarav2024!'),
+    ('Luna', 'Garcia', '1989-10-09 00:00:00', '555-4321', 'luna.garcia@example.com', 2, 'LunaMoon!'),
+    ('Kai', 'Zhao', '1991-03-18 00:00:00', '555-9876', 'kai.zhao@example.com', 4, 'KaiPass#123'),
+    ('Nia', 'Thompson', '1986-07-24 00:00:00', '555-6543', 'nia.thompson@example.com', 7, 'Nia!2024'),
+    ('Omar', 'Alvarez', '1994-12-12 00:00:00', '555-3210', 'omar.alvarez@example.com', 10, 'Omar*2024'),
+    ('Zara', 'Ibrahim', '1987-11-30 00:00:00', '555-2134', 'zara.ibrahim@example.com', 13, 'ZaraSecure!'),
+    ('Finn', 'Reilly', '1992-09-15 00:00:00', '555-7894', 'finn.oreilly@example.com', 18, 'FinnPass2024'),
+    ('Tara', 'Singh', '1985-01-25 00:00:00', '555-4567', 'tara.singh@example.com', 21, 'Tara#2024'),
+    ('Yuto', 'Nakamura', '1990-04-05 00:00:00', '555-8765', 'yuto.nakamura@example.com', 15, 'Yuto1234$'),
+    ('Sofia', 'Martinez', '1988-08-19 00:00:00', '555-5674', 'sofia.martinez@example.com', 25, 'Sofia!@#'),
 
-INSERT INTO member (first_name, last_name, birthday, phone, email, points, password, photo_url)
-VALUES ('John', 'Doe', '1990-04-25 00:00:00', '555-1234', 'john.doe@example.com', 120, 'pass123',
-        'http://example.com/photos/johndoe.jpg'),
-       ('Jane', 'Smith', '1988-07-19 00:00:00', '555-5678', 'jane.smith@example.com', 150, 'pass456',
-        'http://example.com/photos/janesmith.jpg'),
-       ('Alice', 'Johnson', '1992-11-01 00:00:00', '555-9876', 'alice.johnson@example.com', 90, 'pass789',
-        'http://example.com/photos/alicejohnson.jpg'),
-       ('Bob', 'Lee', '1985-02-17 00:00:00', '555-6543', 'bob.lee@example.com', 110, 'pass101',
-        'http://example.com/photos/boblee.jpg'),
-       ('Charlie', 'Brown', '1993-05-22 00:00:00', '555-3214', 'charlie.brown@example.com', 130, 'pass102',
-        'http://example.com/photos/charliebrown.jpg'),
-       ('Daisy', 'Miller', '1991-08-15 00:00:00', '555-2134', 'daisy.miller@example.com', 80, 'pass103',
-        'http://example.com/photos/daisymiller.jpg'),
-       ('Eva', 'Green', '1989-03-30 00:00:00', '555-4321', 'eva.green@example.com', 95, 'pass104',
-        'http://example.com/photos/evagreen.jpg'),
-       ('Frank', 'Wright', '1987-01-26 00:00:00', '555-8765', 'frank.wright@example.com', 120, 'pass105',
-        'http://example.com/photos/frankwright.jpg'),
-       ('Grace', 'Hopper', '1994-12-09 00:00:00', '555-2323', 'grace.hopper@example.com', 85, 'pass106',
-        'http://example.com/photos/gracehopper.jpg'),
-       ('Harry', 'Potter', '1990-07-31 00:00:00', '555-7777', 'harry.potter@example.com', 200, 'pass107',
-        'http://example.com/photos/harrypotter.jpg');
+    ('Aaliyah', 'Brown', '1992-06-14 00:00:00', '555-1111', 'aaliyah.brown@example.com', 1, 'Aaliyah2024!'),
+    ('Chloe', 'Smith', '1991-03-03 00:00:00', '555-5555', 'chloe.smith@example.com', 9, 'Chloe2024%'),
+    ('Emma', 'Lee', '1990-04-21 00:00:00', '555-7777', 'emma.lee@example.com', 16, 'Emma2024&'),
+    ('Olivia', 'Rodriguez', '1986-02-14 00:00:00', '555-9999', 'olivia.rodriguez@example.com', 23, 'Olivia2024!@'),
+    ('Lucas', 'Perez', '1994-11-08 00:00:00', '555-0000', 'lucas.perez@example.com', 1, 'Lucas2024*!');
 
 
 INSERT INTO event (event_title, event_date, attendance_type, comment, helpers_needed)
