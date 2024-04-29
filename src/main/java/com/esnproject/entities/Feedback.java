@@ -19,7 +19,7 @@ public class Feedback extends BaseEntity {
     private String comment;
 
     @ManyToOne
-    @JoinColumn(name = "event_id")
     @JsonIgnore
+    @JoinColumn(name = "event_id", nullable=false)
     private Event event;
 }
