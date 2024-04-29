@@ -48,12 +48,6 @@ public class MemberService {
         memberRepository.deleteById(memberId);
     }
 
-    //members
-    public List<Member> getMembers() {
-       return memberRepository.findAll();
-    }
-
-
 //todo check logic
     public String uploadMemberPhoto(Long memberId, MultipartFile file) throws IOException {
         Member member = memberRepository.findById(memberId)

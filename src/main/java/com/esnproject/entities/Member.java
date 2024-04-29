@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.Date;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
@@ -39,4 +40,10 @@ public class Member extends BaseEntity {
 
     @Column(name = "photo_url")
     private String photoUrl;
+
+    @OneToMany(mappedBy = "memberReceiver")
+    private List<MemberEvent> memberEvents;
+
+    @OneToMany(mappedBy = "memberManager")
+    private List<MemberEvent> managedMemberEvents;
 }
