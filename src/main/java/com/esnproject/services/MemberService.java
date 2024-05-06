@@ -31,6 +31,12 @@ public class MemberService {
                                 .orElseThrow(() -> new RuntimeException("Member not found with id: " + memberId));
     }
 
+    public Member getMemberByEmail(String memberEmail) {
+        return memberRepository.findByEmail(memberEmail);
+    }
+
+
+
     public Member createMember(Member member) {
         return memberRepository.save(member);
     }
