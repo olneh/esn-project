@@ -16,4 +16,6 @@ public interface MemberEventRepository extends JpaRepository<MemberEvent, Long> 
             "FROM MemberEvent me JOIN me.memberReceiver m " +
             "WHERE me.event.id = :eventId")
     List<String> findMemberNamesByEventId(Long eventId);
+
+    List<MemberEvent> findByMemberReceiverId(Long memberReceiverId);
 }

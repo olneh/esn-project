@@ -33,6 +33,10 @@ public class MemberEventService {
         return memberEventRepository.findByEventId(eventId);
     }
 
+    public List<MemberEvent> getEventsForMember(Long memberReceiverId) {
+        return memberEventRepository.findByMemberReceiverId(memberReceiverId);
+    }
+
     @Transactional
     public MemberEvent registerMemberForEvent(Long eventId, Long memberId, String task) {
         validateMemberExists(memberId);

@@ -23,14 +23,15 @@ public class MemberEvent extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "event_id")
-    @JsonIgnore
     private Event event;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "member_receiver_id")
     private Member memberReceiver;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "member_manager_id")
     private Member memberManager;
 }

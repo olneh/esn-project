@@ -17,14 +17,12 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
-    // Endpoint to get all members
     @GetMapping("/all")
     public ResponseEntity<List<Member>> getAllMembers() {
         List<Member> members = memberService.getAllMembers();
         return new ResponseEntity<>(members, HttpStatus.OK);
     }
 
-    // Endpoint to get a single member by ID
     @GetMapping("/{id}")
     public ResponseEntity<Member> getMemberById(@PathVariable("id") Long id) {
         Member member = memberService.getMemberById(id);
@@ -35,7 +33,6 @@ public class MemberController {
         }
     }
 
-    // Endpoint to create a new member
     @PostMapping
     public ResponseEntity<Member> createMember(@RequestBody Member member) {
         Member createdMember = memberService.createMember(member);
@@ -52,16 +49,15 @@ public class MemberController {
         }
     }
 
-    // Endpoint to update an existing member
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Member> updateMember(@PathVariable("id") Long id, @RequestBody Member member) {
-//        Member updatedMember = memberService.updateMember(id, member);
-//        if (updatedMember != null) {
-//            return new ResponseEntity<>(updatedMember, HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Member> updateMember(@PathVariable("id") Long id, @RequestBody Member member) {
+        Member updatedMember = memberService.updateMember(id, member);
+        if (updatedMember != null) {
+            return new ResponseEntity<>(updatedMember, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
     // Endpoint to delete a member
     @DeleteMapping("/{id}")

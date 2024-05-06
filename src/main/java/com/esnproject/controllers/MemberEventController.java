@@ -57,4 +57,11 @@ public class MemberEventController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
+    @GetMapping("/{memberId}/events")
+    public List<MemberEvent> getEventsForMember(@PathVariable Long memberId) {
+        System.out.println(memberId.toString());
+        System.out.println(memberEventService.getEventsForMember(memberId));
+        return memberEventService.getEventsForMember(memberId);
+    }
 }
