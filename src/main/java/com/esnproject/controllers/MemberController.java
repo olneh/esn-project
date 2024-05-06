@@ -59,9 +59,9 @@ public class MemberController {
         }
     }
 
-    // Endpoint to delete a member
     @DeleteMapping("/{id}")
     public void deleteMember(@PathVariable("id") Long id) {
         memberService.deleteMember(id);
     }
+
 }
