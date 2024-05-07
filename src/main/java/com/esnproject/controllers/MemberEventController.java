@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/memberEvents")
@@ -24,10 +25,14 @@ public class MemberEventController {
         return new ResponseEntity<>(memberNames, HttpStatus.OK);
     }
 
-    @GetMapping("/{eventId}/eventMembers") //backend only
-    public ResponseEntity<List<MemberEvent>> getEventMembers(@PathVariable Long eventId) {
+    @GetMapping("/{eventId}/eventMemberIds") //backend only
+    public ResponseEntity<List<Long>> getEventMembers(@PathVariable Long eventId) {
         List<MemberEvent> members = memberEventService.getMembersByEventId(eventId);
-        return new ResponseEntity<>(members, HttpStatus.OK);
+        List<Long> memberIds = members.stream()
+                .map(memberEvent -> memberEvent.getMemberReceiver().getId())
+                .toList();
+
+        return new ResponseEntity<>(memberIds, HttpStatus.OK);
     }
 
 
