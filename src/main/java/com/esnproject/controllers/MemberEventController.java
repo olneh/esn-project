@@ -35,27 +35,20 @@ public class MemberEventController {
     }
 
     @PostMapping("/registerForEvent")
-    public ResponseEntity<String> registerMemberEvent(
-            @RequestParam("event_id") Long eventId,
-            @RequestParam("member_receiver_id") Long memberId,
-            @RequestParam("task") String task) {
+    public ResponseEntity<String> registerMemberEvent(@RequestBody MemberEvent memberEvent) {
         try {
-            MemberEvent memberEvent = memberEventService.registerMemberForEvent(eventId, memberId, task);
-            return new ResponseEntity<>(memberEvent.getEvent().getId().toString(), HttpStatus.CREATED);
+            memberEventService.saveMemberEvent(memberEvent);
+            return new ResponseEntity<>(memberEvent.toString(), HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 
     @PostMapping("/addPoints")
-    public ResponseEntity<String> addMemberEvent(
-            @RequestParam("event_id") Long eventId,
-            @RequestParam("member_manager_id") Long memberManagerId,
-            @RequestParam("member_receiver_id") Long memberReceiverId,
-            @RequestParam("points") Integer points) {
+    public ResponseEntity<String> addMemberEvent(@RequestBody MemberEvent memberEvent) {
         try {
-            MemberEvent memberEvent = memberEventService.addMemberEventPoints(eventId, memberManagerId, memberReceiverId, points);
-            return new ResponseEntity<>(memberEvent.getEvent().getId().toString(), HttpStatus.OK);
+            MemberEvent memberEvent1 = memberEventService.addMemberEventPoints(memberEvent.getEvent().getId(), memberEvent.getMemberManager().getId(), memberEvent.getMemberReceiver().getId(), memberEvent.getPoints());
+            return new ResponseEntity<>(memberEvent1.getEvent().getId().toString(), HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }

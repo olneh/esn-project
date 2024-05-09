@@ -1,8 +1,10 @@
 package com.esnproject.services;
 
 import com.esnproject.entities.Member;
+import com.esnproject.repositories.EventRepository;
+import com.esnproject.repositories.MemberEventRepository;
 import com.esnproject.repositories.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,8 +21,11 @@ import java.util.Objects;
 @Service
 public class MemberService {
 
-    @Autowired
-    private MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     public List<Member> getAllMembers() {
         return memberRepository.findAll();
@@ -28,7 +33,7 @@ public class MemberService {
 
     public Member getMemberById(Long memberId) {
         return memberRepository.findById(memberId)
-                                .orElseThrow(() -> new RuntimeException("Member not found with id: " + memberId));
+                .orElseThrow(() -> new RuntimeException("Member not found with id: " + memberId));
     }
 
     public Member getMemberByEmail(String email) {
@@ -52,7 +57,7 @@ public class MemberService {
         memberRepository.deleteById(memberId);
     }
 
-//todo check logic
+    //todo check logic
     public String uploadMemberPhoto(Long memberId, MultipartFile file) throws IOException {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new RuntimeException("Member not found with id: " + memberId));
