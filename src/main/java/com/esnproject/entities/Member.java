@@ -1,5 +1,6 @@
 package com.esnproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -41,9 +42,11 @@ public class Member extends BaseEntity {
     @Column(name = "photo_url")
     private String photoUrl;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "memberReceiver")
     private List<MemberEvent> memberEvents;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "memberManager")
     private List<MemberEvent> managedMemberEvents;
 }

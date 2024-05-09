@@ -14,7 +14,8 @@ CREATE TABLE IF NOT EXISTS event
     attendance_type TEXT,
     comment         TEXT,
     helpers_needed  INT,
-    created         TIMESTAMP
+    created         TIMESTAMP,
+    last_modified TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS feedback
@@ -23,6 +24,7 @@ CREATE TABLE IF NOT EXISTS feedback
     event_id    BIGINT NOT NULL,
     comment     TEXT,
     created     TIMESTAMP,
+    last_modified TIMESTAMP,
     FOREIGN KEY (event_id) REFERENCES event (event_id)
 );
 
@@ -37,6 +39,7 @@ CREATE TABLE IF NOT EXISTS member
     points     INT,
     password   VARCHAR,
     created    TIMESTAMP,
+    last_modified TIMESTAMP,
     photo_url  VARCHAR
 );
 
@@ -46,6 +49,7 @@ CREATE TABLE IF NOT EXISTS member_role
     member_id      BIGINT NOT NULL,
     member_level   INT,
     created        TIMESTAMP,
+    last_modified TIMESTAMP,
     FOREIGN KEY (member_id) REFERENCES member (member_id)
 );
 
@@ -58,6 +62,7 @@ CREATE TABLE IF NOT EXISTS member_event
     task               TEXT,
     points             INT,
     created            TIMESTAMP,
+    last_modified TIMESTAMP,
     FOREIGN KEY (event_id) REFERENCES event (event_id),
     FOREIGN KEY (member_receiver_id) REFERENCES member (member_id),
     FOREIGN KEY (member_manager_id) REFERENCES member (member_id)
@@ -66,7 +71,7 @@ CREATE TABLE IF NOT EXISTS member_event
 
 INSERT INTO member (first_name, last_name, birthday, phone, email, points, password)
 VALUES
-    ('User', '1', '1993-05-21 00:00:00', '555-6789', 'aarav.patel@example.com', 0, 'Aarav2024!'),
+    ('Marc', 'Dolcet Sadurni', '1924-05-21 00:00:00', '555-6789', 'aarav.patel@example.com', 0, 'Aarav2024!'),
     ('Luna', 'Garcia', '1989-10-09 00:00:00', '555-4321', 'luna.garcia@example.com', 2, 'LunaMoon!'),
     ('Kai', 'Zhao', '1991-03-18 00:00:00', '555-9876', 'kai.zhao@example.com', 4, 'KaiPass#123'),
     ('Nia', 'Thompson', '1986-07-24 00:00:00', '555-6543', 'nia.thompson@example.com', 7, 'Nia!2024'),
