@@ -1,10 +1,7 @@
 package com.esnproject.services;
 
 import com.esnproject.entities.Member;
-import com.esnproject.repositories.EventRepository;
-import com.esnproject.repositories.MemberEventRepository;
 import com.esnproject.repositories.MemberRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
