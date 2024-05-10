@@ -5,7 +5,6 @@ import com.esnproject.services.MemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -41,16 +40,6 @@ public class MemberController {
         return new ResponseEntity<>(createdMember, HttpStatus.CREATED);
     }
 
-    @PostMapping("{memberId}/uploadPhoto")
-    public ResponseEntity<String> uploadMemberPhoto(@PathVariable Long memberId, @RequestParam("file") MultipartFile file) {
-        try {
-            String photoUrl = memberService.uploadMemberPhoto(memberId, file);
-            return ResponseEntity.ok().body("Photo uploaded successfully: " + photoUrl);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Could not upload the photo: " + e.getMessage());
-        }
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<Member> updateMember(@PathVariable("id") Long id, @RequestBody Member member) {
         Member updatedMember = memberService.updateMember(id, member);
@@ -65,5 +54,4 @@ public class MemberController {
     public void deleteMember(@PathVariable("id") Long id) {
         memberService.deleteMember(id);
     }
-
 }

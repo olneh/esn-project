@@ -54,49 +54,13 @@ public class MemberService {
     }
 
     public Member updateMember(Long memberId, Member updatedMember) {
-        if (!memberRepository.existsById(memberId)) {  // Check if the member with the given ID exists
+        if (!memberRepository.existsById(memberId)) {
             throw new RuntimeException("Member not found with id: " + memberId);
         }
-
-//        updatedMember.setMemberId(memberId); // Ensure the ID is set correctly
         return memberRepository.save(updatedMember);
     }
 
     public void deleteMember(Long memberId) {
         memberRepository.deleteById(memberId);
-    }
-
-    //todo check logic
-    public String uploadMemberPhoto(Long memberId, MultipartFile file) throws IOException {
-        Member member = memberRepository.findById(memberId)
-                .orElseThrow(() -> new RuntimeException("Member not found with id: " + memberId));
-
-        String fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
-        String uploadDir = "member-photos/" + memberId;
-
-        // Save the file to the file system
-        saveFile(uploadDir, fileName, file);
-
-        // Update the member's photo URL
-        String photoUrl = "/member-photos/" + memberId + "/" + fileName;
-        member.setPhotoUrl(photoUrl);
-        memberRepository.save(member);
-
-        return photoUrl;
-    }
-
-    private void saveFile(String uploadDir, String fileName, MultipartFile multipartFile) throws IOException {
-        Path uploadPath = Paths.get(uploadDir);
-
-        if (!Files.exists(uploadPath)) {
-            Files.createDirectories(uploadPath);
-        }
-
-        try (InputStream inputStream = multipartFile.getInputStream()) {
-            Path filePath = uploadPath.resolve(fileName);
-            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException ioe) {
-            throw new IOException("Could not save image file: " + fileName, ioe);
-        }
     }
 }
