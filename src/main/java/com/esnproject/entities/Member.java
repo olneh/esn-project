@@ -49,4 +49,8 @@ public class Member extends BaseEntity {
     @JsonIgnore
     @OneToMany(mappedBy = "memberManager")
     private List<MemberEvent> managedMemberEvents;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "member")
+    private List<MemberRole> memberRoles;
 }

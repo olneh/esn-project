@@ -1,7 +1,9 @@
 package com.esnproject.services;
 
 import com.esnproject.entities.Member;
+import com.esnproject.entities.MemberRole;
 import com.esnproject.repositories.MemberRepository;
+import com.esnproject.repositories.MemberRoleRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,9 +21,11 @@ import java.util.Objects;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final MemberRoleRepository memberRoleRepository;
 
-    public MemberService(MemberRepository memberRepository) {
+    public MemberService(MemberRepository memberRepository, MemberRoleRepository memberRoleRepository) {
         this.memberRepository = memberRepository;
+        this.memberRoleRepository = memberRoleRepository;
     }
 
     public List<Member> getAllMembers() {
@@ -38,7 +42,15 @@ public class MemberService {
     }
 
     public Member createMember(Member member) {
-        return memberRepository.save(member);
+
+        member = memberRepository.save(member);
+
+        MemberRole memberRole = new MemberRole();
+        memberRole.setMember(member);
+        memberRole.setMemberLevel("member");
+        memberRoleRepository.save(memberRole);
+
+        return member;
     }
 
     public Member updateMember(Long memberId, Member updatedMember) {

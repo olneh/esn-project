@@ -1,5 +1,6 @@
 package com.esnproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,13 +15,11 @@ public class MemberRole extends BaseEntity {
     @Column(name = "member_role_id")
     private Long id;
 
-    @Column(name = "member_id")
-    private Long memberId;
-
     @Column(name = "member_level")
-    private Integer memberLevel;
+    private String memberLevel = "member";
 
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "member_id", referencedColumnName = "member_id", insertable = false, updatable = false)
+    @JoinColumn(name = "member_id", referencedColumnName = "member_id")
     private Member member;
 }
