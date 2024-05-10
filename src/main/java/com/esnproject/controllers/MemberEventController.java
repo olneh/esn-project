@@ -60,4 +60,13 @@ public class MemberEventController {
         System.out.println(memberEventService.getEventsForMember(memberId));
         return memberEventService.getEventsForMember(memberId);
     }
+
+    @GetMapping("/{memberId}/memberEvents")
+    public ResponseEntity<List<MemberEvent>> getMemberEventsByMemberId(@PathVariable Long memberId) {
+        List<MemberEvent> memberEvents = memberEventService.getEventsForMember(memberId);
+        if (memberEvents.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(memberEvents);
+    }
 }
