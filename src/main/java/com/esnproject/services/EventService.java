@@ -2,17 +2,18 @@ package com.esnproject.services;
 
 import com.esnproject.entities.Event;
 import com.esnproject.repositories.EventRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EventService {
 
-    @Autowired
-    private EventRepository eventRepository;
+    private final EventRepository eventRepository;
+
+    public EventService(EventRepository eventRepository) {
+        this.eventRepository = eventRepository;
+    }
 
     public List<Event> getAllEvents() {
         return eventRepository.findAll();
