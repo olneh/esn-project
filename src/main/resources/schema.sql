@@ -35,9 +35,9 @@ CREATE TABLE IF NOT EXISTS member
     last_name  VARCHAR NOT NULL,
     birthday   TIMESTAMP,
     phone      VARCHAR,
-    email      VARCHAR,
+    email      VARCHAR NOT NULL,
     points     INT,
-    password   VARCHAR,
+    password   VARCHAR NOT NULL,
     created    TIMESTAMP,
     last_modified TIMESTAMP,
     photo_url  VARCHAR
