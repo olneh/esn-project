@@ -71,8 +71,8 @@ CREATE TABLE IF NOT EXISTS member_event
 
 INSERT INTO member (first_name, last_name, birthday, phone, email, points, password)
 VALUES
-    ('Marc', 'Dolcet Sadurni', '1924-05-21 00:00:00', '555-6789', 'aarav.patel@example.com', 0, 'Aarav2024!'),
-    ('Luna', 'Garcia', '1989-10-09 00:00:00', '555-4321', 'luna.garcia@example.com', 2, 'LunaMoon!'),
+    ('Marc', 'Dolcet Sadurni', '1924-05-21 00:00:00', '555-6789', 'marc.dolcet@example.com', 0, '$2a$10$B470jzNxN6IGH.yuL2oqGeEjW9j35y1m2wQDPIn8hxec7ovPiusqO'),
+    ('Luna', 'Garcia', '1989-05-13 00:00:00', '555-4321', 'luna.garcia@example.com', 2, 'LunaMoon!'),
     ('Kai', 'Zhao', '1991-03-18 00:00:00', '555-9876', 'kai.zhao@example.com', 4, 'KaiPass#123'),
     ('Nia', 'Thompson', '1986-07-24 00:00:00', '555-6543', 'nia.thompson@example.com', 7, 'Nia!2024'),
     ('Omar', 'Alvarez', '1994-12-12 00:00:00', '555-3210', 'omar.alvarez@example.com', 10, 'Omar*2024'),
